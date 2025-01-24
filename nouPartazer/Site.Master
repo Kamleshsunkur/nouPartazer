@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="nouPartazer.Site" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nouPartazer</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"> 
+</head>
+<asp:ContentPlaceHolder ID="Content1"  runat="server"></asp:ContentPlaceHolder>
+    
+<body>
+    <form id="form1" runat="server">
+        <div class="header">
+            <nav>
+                <ul>
+                    <li><a href="Index.aspx">Home</a></li>
+                    <li><a href="DonorRegistration.aspx">Register as Donor</a></li>
+                    <li><a href="NgoRegistration.aspx">Register as NGO</a></li>
+                    <li><a href="AdminPanel.aspx">Admin Panel</a></li>
+                    <li><a href="Testimonial.aspx">Post Testimonial</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+
+        <div class="footer">
+            <p>&copy; 2025 nouPartazer. All rights reserved.</p>
+        </div>
+    </form>
+</body>
+</html>

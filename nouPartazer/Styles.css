@@ -1,0 +1,115 @@
+﻿/* Global CSS */
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #888;
+}
+
+/* Header CSS */
+.header {
+    background-color: #fff;
+    position: relative;
+}
+
+    .header nav {
+        padding: 15px 0;
+    }
+
+        .header nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+            .header nav ul li {
+                display: inline-block;
+                margin-right: 15px;
+            }
+
+                .header nav ul li a {
+                    color: #2C2D3F;
+                    font-size: 14px;
+                    font-weight: 400;
+                    text-decoration: none;
+                }
+
+                    .header nav ul li a:hover {
+                        color: #1A76D1;
+                    }
+
+/* Slider CSS */
+.slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.single-slider {
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+}
+
+    .single-slider .text {
+        text-align: center;
+        margin-top: 120px;
+    }
+
+/* Button styles */
+.button .btn {
+    color: #fff;
+    background: #1A76D1;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* Features Section */
+.Feautes {
+    padding: 60px 0;
+}
+
+    .Feautes h2 {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+.single-features {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* About Section */
+.about-area {
+    background-color: #f9f9f9;
+    padding: 60px 0;
+}
+
+/* Footer styles */
+.footer {
+    background: #1A76D1;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Additional Styles */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.single-features {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Add any additional styles or elements as required */
