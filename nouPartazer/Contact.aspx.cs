@@ -43,9 +43,14 @@ namespace nouPartazer
                         {
                             // Show a success message
                             ShowAlert("Your message has been sent successfully!");
+                            // Show success message
+                            lblSuccessMessage.Text = "Thank you for contacting us! We will respond shortly.";
+                            lblSuccessMessage.Visible = true;
 
                             // Redirect to the home page after submission
                             Response.Redirect("Index.aspx");
+
+
                         }
                         else
                         {

@@ -6,60 +6,65 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using nouPartazer.Helpers;
 
 namespace nouPartazer.Admin_Management_functions
 {
     public partial class MangeUsers : System.Web.UI.Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                LoadUsers();
+            }
+        }
+
+        // Load user accounts into the GridView
+        private void LoadUsers()
+        {
+            string query = "SELECT UserID, Username, CASE WHEN IsFrozen = 1 THEN 'Frozen' ELSE 'Active' END AS Status FROM Users";
+            DataTable dt = DatabaseHelper.ExecuteQuery(query, null);
+
+            gridManageUsers.DataSource = dt;
+            gridManageUsers.DataBind();
+        }
+
+        // Handle freeze and unfreeze commands
         protected void gridManageUsers_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int userId = Convert.ToInt32(e.CommandArgument);
 
             if (e.CommandName == "Freeze")
             {
-                using (SqlConnection conn = new SqlConnection("your_connection_string"))
-                {
-                    SqlCommand cmd = new SqlCommand("UPDATE Users SET IsFrozen = 1 WHERE UserID = @UserID", conn);
-                    cmd.Parameters.AddWithValue("@UserID", userId);
-
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                }
-
-                // Optionally, you can re-bind the grid to show the updated status
-                BindUsersGrid();
+                UpdateUserStatus(userId, true); // Freeze user
             }
             else if (e.CommandName == "Unfreeze")
             {
-                using (SqlConnection conn = new SqlConnection("your_connection_string"))
-                {
-                    SqlCommand cmd = new SqlCommand("UPDATE Users SET IsFrozen = 0 WHERE UserID = @UserID", conn);
-                    cmd.Parameters.AddWithValue("@UserID", userId);
-
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                }
-
-                // Re-bind the grid to update the changes
-                BindUsersGrid();
+                UpdateUserStatus(userId, false); // Unfreeze user
             }
         }
 
-        // Method to bind users to the grid
-        private void BindUsersGrid()
+        // Update user status in the database
+        private void UpdateUserStatus(int userId, bool freeze)
         {
-            using (SqlConnection conn = new SqlConnection("your_connection_string"))
+            string query = "UPDATE Users SET IsFrozen = @IsFrozen WHERE UserID = @UserID";
+            SqlParameter[] parameters = {
+                new SqlParameter("@IsFrozen", freeze ? 1 : 0),
+                new SqlParameter("@UserID", userId)
+            };
+
+            int rowsAffected = DatabaseHelper.ExecuteNonQuery(query, parameters);
+
+            if (rowsAffected > 0)
             {
-                SqlCommand cmd = new SqlCommand("SELECT UserID, Username, IsFrozen FROM Users", conn);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                conn.Open();
-                da.Fill(dt);
-                gridManageUsers.DataSource = dt;
-                gridManageUsers.DataBind();
-                conn.Close();
+                string action = freeze ? "frozen" : "unfrozen";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", $"alert('User successfully {action}!');", true);
+                LoadUsers(); // Refresh the GridView
+            }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Failed to update user status. Please try again.');", true);
             }
         }
     }

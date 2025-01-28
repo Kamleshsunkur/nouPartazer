@@ -51,7 +51,7 @@ namespace nouPartazer
                         {
                             // Show a success message
                             ShowAlert("NGO registered successfully! Awaiting approval.");
-                            Response.Redirect("Index.aspx");
+                            Response.Redirect("Login.aspx");
                         }
                         else
                         {

@@ -74,6 +74,7 @@
     <Content Include="DonorRegistration.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="logo1.jpeg" />
+    <Content Include="mainpage.jpg" />
     <Content Include="MangeCategories.aspx" />
     <Content Include="MangeUsers.aspx" />
     <Content Include="NgoRegistration.aspx" />
@@ -301,7 +302,9 @@
   <ItemGroup>
     <Folder Include="Admin Management functions\" />
     <Folder Include="Analytical and monitoring functions\" />
+    <Folder Include="image\UploadedImages\" />
     <Folder Include="NGO functions\" />
+    <Folder Include="obj\" />
     <Folder Include="Request management functions\" />
     <Folder Include="user registration&amp;MF\" />
   </ItemGroup>

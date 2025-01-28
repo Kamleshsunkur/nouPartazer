@@ -36,7 +36,7 @@ namespace nouPartazer
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Registration successful!');", true);
 
                 // Optionally redirect after showing the popup
-                Response.Redirect("Index.aspx");
+                Response.Redirect("Login.aspx");
             }
             catch (Exception ex)
             {

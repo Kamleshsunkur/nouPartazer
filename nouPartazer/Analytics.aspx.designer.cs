@@ -15,12 +15,12 @@ namespace nouPartazer.Analytical_and_monitoring_functions
     {
 
         /// <summary>
-        /// lblStats control.
+        /// gridItems control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStats;
+        protected global::System.Web.UI.WebControls.GridView gridItems;
     }
 }

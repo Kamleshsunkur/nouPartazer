@@ -39,30 +39,47 @@ h1, h2, h3, h4 {
                     color: #333; /* Hover color */
                 }
 
-/* Slider Styles */
-.slider {
-    height: 400px;
-    background: url('img/slider-bg.jpg') no-repeat center center/cover; /* Background for the slider */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
+
+/* Background styling for the section */
+.background-section {
+    background-image: url('main.jpg'); no-repeat center center; /* Correct path to your image */
+    background-size: cover; /* Ensures the image covers the entire container */
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Flexbox for centering content */
+    justify-content: left; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    color: white; /* Text color for readability */
+    text-align: center; /* Center-align text */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in height calculations */
 }
 
-.single-slider {
-    text-align: center;
+h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
-    .single-slider .text h1 {
-        font-size: 36px;
-        margin: 0;
-    }
+p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
 
-    .single-slider .text p {
-        margin: 20px 0;
-        font-size: 18px;
-    }
+.get-involved-btn {
+    margin-top: 30px;
+    background-color: #007bff;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    display: inline-block;
+}
 
+    .get-involved-btn:hover {
+        background-color: #0056b3;
+    }
 /* Features Section */
 .features {
     padding: 40px 0;
@@ -260,6 +277,30 @@ input[type="text"], input[type="email"], input[type="password"], textarea {
         border-color: #1A76D1;
         box-shadow: 0 0 5px rgba(26, 118, 209, 0.5);
     }
+
+
+
+#gridAvailableItems {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+    #gridAvailableItems th, #gridAvailableItems td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+
+    #gridAvailableItems th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+    }
+
+form div {
+    margin-bottom: 15px;
+}
+
 
 /* Button Styles for Forms */
 input[type="submit"], .btn {

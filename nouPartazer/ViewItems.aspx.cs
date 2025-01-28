@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Configuration;
+using System.IO;
 
 namespace nouPartazer.NGO_functions
 {
@@ -19,31 +15,67 @@ namespace nouPartazer.NGO_functions
             }
         }
 
+        // Method to bind data to the GridView
         private void BindGrid()
         {
-            //using (SqlConnection conn = new SqlConnection("your_connection" 
-           // string connectionString = "your_connection_string";
-           // {
-              //  SqlCommand cmd = new SqlCommand("SELECT ItemID, ItemName, Description FROM DonatedItems WHERE IsAvailable = 1", conn);
-               // SqlDataAdapter da = new SqlDataAdapter(cmd);
-               // DataTable dt = new DataTable();
-               // conn.Open();
-                //da.Fill(dt);
-              //  gridItems.DataSource = dt;
-               // gridItems.DataBind();
-               // conn.Close();
-          //  }
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString))
+            {
+                string query = "SELECT ItemName, Description, ImagePath FROM Items";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                conn.Open();
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                gridItems.DataSource = reader;
+                gridItems.DataBind();
+            }
         }
 
-        protected void gridItems_RowCommand(object sender, GridViewCommandEventArgs e)
+        // Method to handle item upload
+        protected void btnUpload_Click(object sender, EventArgs e)
         {
-            if (e.CommandName == "Reserve")
+            if (fileUploadControl.HasFile)
             {
-                int itemId = Convert.ToInt32(e.CommandArgument);
-                // Redirect to reservation page or open a modal for more details
-                Response.Redirect($"ReserveItem.aspx?itemId={itemId}");
+                try
+                {
+                    // Save the file to the UploadedImages folder
+                    string filename = Path.GetFileName(fileUploadControl.FileName);
+                    string filePath = "~/UploadedImages/" + filename;
+                    string serverPath = Server.MapPath(filePath);
+                    fileUploadControl.SaveAs(serverPath);
+
+                    // Save item details to the database
+                    string itemName = txtItemName.Text.Trim();
+                    string description = txtDescription.Text.Trim();
+
+                    using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString))
+                    {
+                        string query = "INSERT INTO Items (ItemName, Description, ImagePath) VALUES (@ItemName, @Description, @ImagePath)";
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@ItemName", itemName);
+                        cmd.Parameters.AddWithValue("@Description", description);
+                        cmd.Parameters.AddWithValue("@ImagePath", filePath);
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    lblMessage.Text = "Item added successfully!";
+                    lblMessage.ForeColor = System.Drawing.Color.Green;
+
+                    // Refresh the GridView
+                    BindGrid();
+                }
+                catch (Exception ex)
+                {
+                    lblMessage.Text = "Error: " + ex.Message;
+                    lblMessage.ForeColor = System.Drawing.Color.Red;
+                }
+            }
+            else
+            {
+                lblMessage.Text = "Please select a file to upload.";
+                lblMessage.ForeColor = System.Drawing.Color.Red;
             }
         }
     }
-
 }

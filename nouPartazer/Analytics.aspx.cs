@@ -1,57 +1,48 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace nouPartazer.Analytical_and_monitoring_functions
 {
-    public partial class Analytics : System.Web.UI.Page
+    public partial class Analytics : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                //LoadStatistics();
+                LoadItems();
             }
         }
-        //private void LoadStatistics()
-        //{
-        //    using (SqlConnection conn = new SqlConnection("your_connection_string"))
-        //    {
-        //        conn.Open();
 
-                // Example statistics
-                //SqlCommand cmdItems = new SqlCommand("SELECT COUNT(*) FROM. " 
-        //      public void LoadStatistics()
-        //        {
-        //            int itemCount = 0;
-        //            int donorCount = 0;
-        //            int ngoCount = 0;
+        private void LoadItems()
+        {
+            // Connection string for your database
+            string connectionString = "Data Source=DESKTOP-O8M3F3T\\MSSQLSERVER1;Initial Catalog=NouPartazerDB;Integrated Security=True";
 
-        //            using (SqlConnection conn = new SqlConnection("your_connection_string"))
-        //            {
-        //                conn.Open();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    string query = "SELECT ItemName, Description, ImagePath FROM Items"; // Adjust table name if different
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        conn.Open();
+                        SqlDataAdapter da = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
 
-        //                // Get the total number of items
-        //                SqlCommand cmdItems = new SqlCommand("SELECT COUNT(*) FROM DonatedItems", conn);
-        //                itemCount = (int)cmdItems.ExecuteScalar();
-
-        //                // Get the total number of donors
-        //                SqlCommand cmdDonors = new SqlCommand("SELECT COUNT(*) FROM Donors", conn);
-        //                donorCount = (int)cmdDonors.ExecuteScalar();
-
-        //                // Get the total number of NGOs
-        //                SqlCommand cmdNGOs = new SqlCommand("SELECT COUNT(*) FROM NGOs WHERE IsApproved = 1", conn);
-        //                ngoCount = (int)cmdNGOs.ExecuteScalar();
-        //            }
-
-        //            // Display the statistics
-        //            lblStats.Text = $"Total Items: {itemCount} <br /> Total Donors: {donorCount} <br /> Total Registered NGOs: {ngoCount}";
-        //        }
-        //    }
-        //}
+                        // Bind the data to the GridView
+                        gridItems.DataSource = dt;
+                        gridItems.DataBind();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the error or display a friendly message
+               
+            }
+        }
     }
 }
