@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DonorRegistration.aspx.cs" Inherits="nouPartazer.DonorRegistration" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="NgoRegistration.aspx.cs" Inherits="nouPartazer.NgoRegistration" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>Register as Donor</h2>
-  
+    <h2>Register as NGO</h2>
+    
         <div>
-            <label for="txtUsername">Username:</label>
-            <asp:TextBox ID="txtUsername" runat="server" Required="true" />
+            <label for="txtNgoName">NGO Name:</label>
+            <asp:TextBox ID="txtNgoName" runat="server" Required="true" />
         </div>
         <div>
             <label for="txtEmail">Email:</label>
@@ -17,5 +17,5 @@
         <div>
             <asp:Button ID="btnRegister" Text="Register" runat="server" OnClick="btnRegister_Click" />
         </div>
-    
+   
 </asp:Content>

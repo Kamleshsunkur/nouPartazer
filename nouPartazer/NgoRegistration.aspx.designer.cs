@@ -7,30 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace nouPartazer.user_registration_MF
+namespace nouPartazer
 {
 
 
-    public partial class DonorProfile
+    public partial class NgoRegistration
     {
 
         /// <summary>
-        /// profileForm control.
+        /// txtNgoName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm profileForm;
-
-        /// <summary>
-        /// txtUsername control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUsername;
+        protected global::System.Web.UI.WebControls.TextBox txtNgoName;
 
         /// <summary>
         /// txtEmail control.
@@ -51,12 +42,12 @@ namespace nouPartazer.user_registration_MF
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
 
         /// <summary>
-        /// btnUpdate control.
+        /// btnRegister control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdate;
+        protected global::System.Web.UI.WebControls.Button btnRegister;
     }
 }

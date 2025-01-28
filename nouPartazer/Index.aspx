@@ -1,18 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="nouPartazer.Index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="slider">
-        <div class="single-slider">
-            <div class="text">
-                <h1>Welcome to nouPartazer</h1>
-                <p>Helping our community by connecting donors with those in need.</p>
-                <div class="button">
-                    <a class="btn" href="#">Get Involved</a>
-                </div>
-            </div>
+   >
+ 
+  <div style="background-image:url('img/main.jpg'); background-size:cover; background-position:center; height: 400px; display: flex; align-items: center; justify-content: center; color: white; text-align: center;">
+        <h1>Welcome to nouPartazer</h1>
+        <p>Helping our community by connecting donors with those in need.</p>
+        <div class="button">
+            <a class="btn" href="#">Get Involved</a>
         </div>
     </div>
-
-    <section id="features" class="Feautes">
+           
+    
+    <section id="features" class="features">
         <div class="container">
             <h2>Our Features</h2>
             <div class="row">
@@ -47,3 +46,4 @@
         </div>
     </section>
 </asp:Content>
+

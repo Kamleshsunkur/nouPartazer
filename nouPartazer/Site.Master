@@ -1,29 +1,79 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="nouPartazer.Site" %>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>nouPartazer</title>
-    <link rel="stylesheet" type="text/css" href="styles.css"> 
+    <link rel="icon" href="img/favicon.png"> <!-- Change to your actual favicon -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/nice-select.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/icofont.css">
+    <link rel="stylesheet" type="text/css" href="css/slicknav.min.css">
+    <link rel="stylesheet" type="text/css" href="css/owl-carousel.css">
+    <link rel="stylesheet" type="text/css" href="css/datepicker.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="css/magnific-popup.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Your custom styles -->
 </head>
-<asp:ContentPlaceHolder ID="Content1"  runat="server"></asp:ContentPlaceHolder>
-    
 <body>
     <form id="form1" runat="server">
-        <div class="header">
-            <nav>
-                <ul>
-                    <li><a href="Index.aspx">Home</a></li>
-                    <li><a href="DonorRegistration.aspx">Register as Donor</a></li>
-                    <li><a href="NgoRegistration.aspx">Register as NGO</a></li>
-                    <li><a href="AdminPanel.aspx">Admin Panel</a></li>
-                    <li><a href="Testimonial.aspx">Post Testimonial</a></li>
-                </ul>
-            </nav>
+        <!-- Preloader -->
+        <div class="preloader">
+            <div class="loader">
+                <div class="loader-outter"></div>
+                <div class="loader-inner"></div>
+                <div class="indicator"> 
+                    <svg width="16px" height="12px">
+                        <polyline id="back" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                        <polyline id="front" points="1 6 4 6 6 11 10 1 12 6 15 6"></polyline>
+                    </svg>
+                </div>
+            </div>
         </div>
+        <!-- End Preloader -->
 
+        <!-- Header Area -->
+        <header class="header">
+           
+            
+            <div class="header-inner">
+                <div class="container">
+                    <div class="inner">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-12">
+                                <div class="logo">
+                                    <a href="Index.aspx"><img src="logo1.jpeg"  alt="Logo" style="width: 150px; height: auto;"/></a>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-md-9 col-12">
+                                <nav class="navigation">
+                                    <ul class="nav menu">
+                                        <li><a href="Index.aspx">Home</a></li>
+                                        <li><a href="DonorRegistration.aspx">Register as Donor</a></li>
+                                        <li><a href="NgoRegistration.aspx">Register as NGO</a></li> <li><a href="ViewItems.aspx">View Items</a></li>
+                                        <li><a href="MassRequest.aspx">Send Mass Request</a></li>
+                                        <li><a href="AdminPanel.aspx">Admin Panel</a></li>
+                                        <li><a href="Testimonial.aspx">Post Testimonial</a></li>
+                                        <li><a href="Login.aspx">Login</a></li> <!-- Link to the Login page -->
+                                        <li><a href="Contact.aspx">Contact Us</a></li> <!-- Link to the Contact page -->
+                                    </ul>
+                                </nav>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ End Header Inner -->
+        </header>
+        <!-- End Header Area -->
+        
         <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
 
         <div class="footer">

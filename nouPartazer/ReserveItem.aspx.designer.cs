@@ -7,21 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace nouPartazer.user_registration_MF
+namespace nouPartazer.Request_management_functions
 {
 
 
-    public partial class EditItem
+    public partial class ReserveItem
     {
-
-        /// <summary>
-        /// editItemForm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm editItemForm;
 
         /// <summary>
         /// HiddenItemId control.
@@ -33,39 +24,39 @@ namespace nouPartazer.user_registration_MF
         protected global::System.Web.UI.WebControls.HiddenField HiddenItemId;
 
         /// <summary>
-        /// txtItemName control.
+        /// txtQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtItemName;
+        protected global::System.Web.UI.WebControls.TextBox txtQuantity;
 
         /// <summary>
-        /// txtDescription control.
+        /// txtSize control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescription;
+        protected global::System.Web.UI.WebControls.TextBox txtSize;
 
         /// <summary>
-        /// ddlCategory control.
+        /// txtAgeRange control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCategory;
+        protected global::System.Web.UI.WebControls.TextBox txtAgeRange;
 
         /// <summary>
-        /// btnUpdateItem control.
+        /// btnSendRequest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnUpdateItem;
+        protected global::System.Web.UI.WebControls.Button btnSendRequest;
     }
 }

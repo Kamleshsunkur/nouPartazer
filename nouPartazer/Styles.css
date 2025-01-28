@@ -1,100 +1,142 @@
-﻿/* Global CSS */
+﻿/* Global Styles */
 body {
     font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: #888;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
 }
 
-/* Header CSS */
+h1, h2, h3, h4 {
+    color: #1A76D1;
+}
+
+/* Header and Navigation */
 .header {
     background-color: #fff;
-    position: relative;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-    .header nav {
-        padding: 15px 0;
+    .header nav ul {
+        list-style-type: none;
+        padding: 0;
     }
 
-        .header nav ul {
-            list-style: none;
-            padding: 0;
+        .header nav ul li {
+            display: inline;
+            margin-right: 20px;
         }
 
-            .header nav ul li {
-                display: inline-block;
-                margin-right: 15px;
+            .header nav ul li a {
+                text-decoration: none;
+                color: #1A76D1;
+                font-weight: 600;
+                transition: color 0.3s;
             }
 
-                .header nav ul li a {
-                    color: #2C2D3F;
-                    font-size: 14px;
-                    font-weight: 400;
-                    text-decoration: none;
+                .header nav ul li a:hover {
+                    color: #333; /* Hover color */
                 }
 
-                    .header nav ul li a:hover {
-                        color: #1A76D1;
-                    }
-
-/* Slider CSS */
+/* Slider Styles */
 .slider {
-    position: relative;
-    overflow: hidden;
+    height: 400px;
+    background: url('img/slider-bg.jpg') no-repeat center center/cover; /* Background for the slider */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
 }
 
 .single-slider {
-    height: 600px;
-    background-size: cover;
-    background-position: center;
+    text-align: center;
 }
 
-    .single-slider .text {
-        text-align: center;
-        margin-top: 120px;
+    .single-slider .text h1 {
+        font-size: 36px;
+        margin: 0;
     }
 
-/* Button styles */
-.button .btn {
-    color: #fff;
-    background: #1A76D1;
-    padding: 10px 20px;
-    border-radius: 5px;
-}
+    .single-slider .text p {
+        margin: 20px 0;
+        font-size: 18px;
+    }
 
 /* Features Section */
-.Feautes {
-    padding: 60px 0;
+.features {
+    padding: 40px 0;
+    background-color: #fff;
 }
 
-    .Feautes h2 {
+    .features .single-features {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 10px;
         text-align: center;
-        margin-bottom: 40px;
+        transition: box-shadow 0.3s;
     }
 
-.single-features {
-    text-align: center;
-    margin-bottom: 30px;
-}
+        .features .single-features:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
 
 /* About Section */
 .about-area {
+    padding: 40px 0;
     background-color: #f9f9f9;
-    padding: 60px 0;
 }
 
-/* Footer styles */
-.footer {
-    background: #1A76D1;
+/* Form Styles */
+form {
+    background: #fff;
+    border-radius: 7px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+    form div {
+        margin-bottom: 15px;
+    }
+
+    form label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    form input[type="text"], form input[type="email"], form input[type="password"], form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+        form input[type="text"]:focus, form input[type="email"]:focus, form input[type="password"]:focus, form textarea:focus {
+            border-color: #1A76D1;
+        }
+
+/* Buttons */
+.button {
+    padding: 10px 20px;
+    background-color: #1A76D1;
     color: #fff;
-    text-align: center;
-    padding: 20px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-/* Additional Styles */
+    .button:hover {
+        background-color: #007BFF; /* Darker shade on hover */
+    }
+
+/* Grid and Layout */
 .container {
     width: 80%;
-    margin: 0 auto;
+    margin: auto;
 }
 
 .row {
@@ -102,14 +144,134 @@ body {
     flex-wrap: wrap;
 }
 
-.single-features {
-    flex: 1;
-    min-width: 200px;
-    margin: 10px;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Footer Styles */
+.footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #1A76D1;
+    color: #fff;
 }
 
-/* Add any additional styles or elements as required */
+    .footer p {
+        margin: 0;
+    }
+
+    .footer a {
+        color: #fff;
+    }
+
+/* Chatbox Styles */
+.chatbox {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #1A76D1;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Ensures it stays above other content */
+    width: 300px; /* Adjust width as necessary */
+    display: none; /* Initially hidden */
+}
+
+.chatbox-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .chatbox-header h4 {
+        margin: 0;
+    }
+
+    .chatbox-header button {
+        background: transparent;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+.chatbox-body {
+    max-height: 300px; /* Limit height of chat area */
+    overflow-y: auto; /* Enable scrolling */
+    margin-top: 10px;
+}
+
+.chatbox-footer {
+    margin-top: 10px;
+}
+
+    .chatbox-footer input {
+        width: calc(100% - 80px); /* Allow space for button */
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    /* Chatbox button styles */
+    .chatbox-footer button {
+        padding: 10px 15px;
+        background-color: #007BFF; /* Button color */
+        border: none;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header nav ul {
+        display: block; /* Stack navigation links on smaller screens */
+    }
+
+        .header nav ul li {
+            margin-bottom: 10px; /* Add spacing between items */
+        }
+
+    .slider {
+        height: 250px; /* Adjust height for smaller screens */
+    }
+
+    .features .single-features {
+        margin-bottom: 20px; /* More spacing for mobile devices */
+    }
+}
+
+/* Customize specific page elements for Login and Contact */
+.login-form, .contact-form {
+    background: #fff;
+    border-radius: 7px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Inputs */
+input[type="text"], input[type="email"], input[type="password"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+    input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus {
+        border-color: #1A76D1;
+        box-shadow: 0 0 5px rgba(26, 118, 209, 0.5);
+    }
+
+/* Button Styles for Forms */
+input[type="submit"], .btn {
+    background-color: #1A76D1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    input[type="submit"]:hover, .btn:hover {
+        background-color: #007BFF; /* Change on hover */
+    }

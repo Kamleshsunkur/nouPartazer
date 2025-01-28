@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="DonorProfile.aspx.cs" Inherits="nouPartazer.user_registration_MF.DonorProfile" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Update Profile</h2>
-    <form id="profileForm" runat="server">
+   
         <label for="txtUsername">Username:</label>
         <asp:TextBox ID="txtUsername" runat="server" Enabled="false" />
         <div>
@@ -15,5 +15,5 @@
         <div>
             <asp:Button ID="btnUpdate" Text="Update" runat="server" OnClick="btnUpdate_Click" />
         </div>
-    </form>
+   
 </asp:Content>
